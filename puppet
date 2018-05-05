@@ -1,0 +1,55 @@
+Foreman  with Puppet 4.x
+
+https://theforeman.org/manuals/1.12/quickstart_guide.html
+
+
+
+apt-get -y install ca-certificates && \
+wget https://apt.puppetlabs.com/puppetlabs-release-pc1-trusty.deb && \
+dpkg -i puppetlabs-release-pc1-trusty.deb && \
+echo "deb http://deb.theforeman.org/ trusty 1.12" > /etc/apt/sources.list.d/foreman.list && \
+echo "deb http://deb.theforeman.org/ plugins 1.12" >> /etc/apt/sources.list.d/foreman.list && \
+apt-get -y install ca-certificates && \
+wget -q https://deb.theforeman.org/pubkey.gpg -O- | apt-key add - && \
+apt-get update && apt-get -y install foreman-installer && \
+foreman-installer
+
+============= puppet installation ===========================
+
+https://www.digitalocean.com/community/tutorials/how-to-install-puppet-4-in-a-master-agent-setup-on-ubuntu-14-04
+
+
+wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb && \
+    sudo dpkg -i puppetlabs-release-trusty.deb && \
+    sudo apt-get update -yq && sudo apt-get upgrade -yq && \
+    sudo apt-get install -yq puppetmaster
+
+
+
+agent:
+
+ sudo apt-get install -yq puppet
+ 
+ repos: https://apt.puppetlabs.com/
+
+debrepo:
+
+wget https://apt.puppetlabs.com/puppetlabs-release-pc1-trusty.deb && \
+
+dpkg -i puppetlabs-release-pc1-trusty.deb && \
+
+apt-get update && \
+
+apt-get install puppet-agent puppetserver && \
+
+puppet resource service pupperserver ensure=running && \
+
+puppet resource service pupperserver enable=true
+
+agent :
+
+apt-get install puppet-agent
+
+puppet resource service puppet ensure=running
+
+puppet resource service pupper enable=true
