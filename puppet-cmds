@@ -1,0 +1,12 @@
+- agent and master should be abale to ping 
+- agen should be able to have communicate with master
+nc -v <master ip> 8140
+- vim /etc/puppetlabs/puppet/puppet.conf
+add following:
+[agent]
+server=<master hostname pingable>
+restart the puppet service
+# service puppet restart
+
+On the Puppet Master:
+install puppet master and foreman.
